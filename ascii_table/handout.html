@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Accii Table Generator</title>
+</head>
+<body>
+<div class="container" id="app">
+<h1>Ascii Table generator - Alpha</h1>
+<table style="width:100%">
+<tr v-for="r in rowsCount">
+<td v-for="c in colsCount">
+<input v-model="rows[r-1].cols[c-1].text"> 
+</td>
+</tr>
+</table> 
+
+<button v-on:click="addRow">Add Row</button>
+<button v-on:click="addCol">Add Column</button>
+<button v-on:click="gen">generate</button>
+
+    <hr />
+
+<code>{{output}}</code>    
+</div>
+
+<style>
+* {
+	box-sizing: border-box;
+    font-family: Arial;
+}
+
+.container {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td {
+	padding: 5px;
+	
+}
+
+td input {
+	width: 100%;
+}
+    
+hr {
+    margin-bottom: 30px;
+}
+
+code {
+    border: thin solid black;
+    width: 100%;
+    padding: 10px;
+    display: block;
+    white-space: pre-wrap   
+}
+</style>
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="app.js"></script>
+
+
+</body>
+</html>
