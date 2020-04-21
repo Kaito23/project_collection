@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<catalog id="testID" price="10">
+   <book id="bk101">
+      <authors>
+	<author>Gambardella, Matthew</author>
+	<author>Max mustermann</author>
+	<author>test @ testew</author>
+      </authors>
+      <title>XML Developer's Guide</title>
+   </book>
+   <book id="bk102">
+      <author>Ralls, Kim</author>
+      <title>Midnight Rain</title>
+   </book>   
+</catalog>
