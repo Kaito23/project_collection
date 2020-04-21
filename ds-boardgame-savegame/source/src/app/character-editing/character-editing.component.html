@@ -1,0 +1,222 @@
+<div class="row">
+	<div class="column _2">
+    <h2>{{heroesHeadline}}</h2>
+		<ul>
+			<li *ngFor="let hero of chosenHeroes">
+				<span *ngIf="showUpload" (click)="removeFromSelection(hero)">(x)</span> <span (click)="heroSelect(hero)">{{hero.character}} (click to edit)</span>
+			</li>
+    </ul>
+  </div>
+	<div *ngIf="editingHeroDeatils" class="column _10">
+    <div class="row">
+    	<div class="column _12">
+        <h2>Details {{editingHeroDeatils.character}}</h2> 
+        <p>Please select your inventory first!</p>
+        Player:
+				<input [(ngModel)]="editingHeroDeatils.player" placeholder="name">
+				<br /> Ember:
+        <input type="checkbox" [(ngModel)]="editingHeroDeatils.ember">
+      </div>
+    </div>
+    <div class="row">
+      <div class="column _6">
+        <table>
+					<tr>
+            <th>Attribute</th>
+            <th>Base</th>
+						<th>T1</th>
+						<th>T2</th>
+						<th>T3</th>
+					</tr>
+					<tr>
+            <td>Strength</td>
+            <td>
+							<input name="strengthTier" ng-control="strengthTier" type="radio" [value]="0" [(ngModel)]="editingHeroDeatils.strengthTier">
+						</td>
+						<td>
+							<input name="strengthTier" ng-control="strengthTier" type="radio" [value]="1" [(ngModel)]="editingHeroDeatils.strengthTier">
+						</td>
+						<td>
+							<input name="strengthTier" ng-control="strengthTier" type="radio" [value]="2" [(ngModel)]="editingHeroDeatils.strengthTier">
+						</td>
+						<td>
+							<input name="strengthTier" ng-control="strengthTier" type="radio" [value]="3" [(ngModel)]="editingHeroDeatils.strengthTier">
+						</td>
+					</tr>
+					<tr>
+            <td>Dexterity</td>
+            <td>
+							<input name="dexterityTier" ng-control="dexterityTier" type="radio" [value]="0" [(ngModel)]="editingHeroDeatils.dexterityTier">
+						</td>
+						<td>
+							<input name="dexterityTier" ng-control="dexterityTier" type="radio" [value]="1" [(ngModel)]="editingHeroDeatils.dexterityTier">
+						</td>
+						<td>
+							<input name="dexterityTier" ng-control="dexterityTier" type="radio" [value]="2" [(ngModel)]="editingHeroDeatils.dexterityTier">
+						</td>
+						<td>
+							<input name="dexterityTier" ng-control="dexterityTier" type="radio" [value]="3" [(ngModel)]="editingHeroDeatils.dexterityTier">
+						</td>
+					</tr>
+					<tr>
+            <td>Intelligence</td>
+            <td>
+							<input name="intelligenceTier" ng-control="intelligenceTier" type="radio" [value]="0" [(ngModel)]="editingHeroDeatils.intelligenceTier">
+						</td>
+						<td>
+							<input name="intelligenceTier" ng-control="intelligenceTier" type="radio" [value]="1" [(ngModel)]="editingHeroDeatils.intelligenceTier">
+						</td>
+						<td>
+							<input name="intelligenceTier" ng-control="intelligenceTier" type="radio" [value]="2" [(ngModel)]="editingHeroDeatils.intelligenceTier">
+						</td>
+						<td>
+							<input name="intelligenceTier" ng-control="intelligenceTier" type="radio" [value]="3" [(ngModel)]="editingHeroDeatils.intelligenceTier">
+						</td>
+					</tr>
+					<tr>
+            <td>Faith</td>
+            <td>
+							<input name="faithTier" ng-control="faithTier" type="radio" [value]="0" [(ngModel)]="editingHeroDeatils.faithTier">
+						</td>
+						<td>
+							<input name="faithTier" ng-control="faithTier" type="radio" [value]="1" [(ngModel)]="editingHeroDeatils.faithTier">
+						</td>
+						<td>
+							<input name="faithTier" ng-control="faithTier" type="radio" [value]="2" [(ngModel)]="editingHeroDeatils.faithTier">
+						</td>
+						<td>
+							<input name="faithTier" ng-control="faithTier" type="radio" [value]="3" [(ngModel)]="editingHeroDeatils.faithTier">
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="column _6">
+				<table>
+					<tr>
+						<td>L-Weapon 1</td>
+						<td>
+							<select [(ngModel)]="editingHeroDeatils.leftHand1">
+								<option></option>
+								<option *ngFor="let option of selectedHero" [ngValue]="option">{{option}}</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>L-Weapon 2</td>
+						<td>
+							<select [(ngModel)]="editingHeroDeatils.leftHand2">
+								<option></option>
+								<option *ngFor="let option of selectedHero" [ngValue]="option">{{option}}</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>L-Weapon 3</td>
+						<td>
+							<select [(ngModel)]="editingHeroDeatils.leftHand3">
+								<option></option>
+								<option *ngFor="let option of selectedHero" [ngValue]="option">{{option}}</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>R-Weapon 1</td>
+						<td>
+							<select [(ngModel)]="editingHeroDeatils.rightHand1">
+								<option></option>
+								<option *ngFor="let option of selectedHero" [ngValue]="option">{{option}}</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>R-Weapon 2</td>
+						<td>
+							<select [(ngModel)]="editingHeroDeatils.rightHand2">
+								<option></option>
+								<option *ngFor="let option of selectedHero" [ngValue]="option">{{option}}</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>R-Weapon 3</td>
+						<td>
+							<select [(ngModel)]="editingHeroDeatils.rightHand3">
+								<option></option>
+								<option *ngFor="let option of selectedHero" [ngValue]="option">{{option}}</option>
+							</select>
+						</td>
+					</tr>
+
+				</table>
+
+			</div>
+
+			<div class="column _6">
+				<table>
+					<tr>
+						<td>Inventory 1</td>
+						<td>
+							<select [(ngModel)]="editingHeroDeatils.inventory1">
+								<option></option>
+								<option *ngFor="let option of selectedHero" [ngValue]="option">{{option}}</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Inventory 2</td>
+						<td>
+							<select [(ngModel)]="editingHeroDeatils.inventory2">
+								<option></option>
+								<option *ngFor="let option of selectedHero" [ngValue]="option">{{option}}</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Inventory 3</td>
+						<td>
+							<select [(ngModel)]="editingHeroDeatils.inventory3">
+								<option></option>
+								<option *ngFor="let option of selectedHero" [ngValue]="option">{{option}}</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="column _6">
+				<table>
+					<tr>
+						<td>Amour 1</td>
+						<td>
+							<select [(ngModel)]="editingHeroDeatils.amour1">
+								<option></option>
+								<option *ngFor="let option of selectedHero" [ngValue]="option">{{option}}</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Amour 2</td>
+						<td>
+							<select [(ngModel)]="editingHeroDeatils.amour2">
+								<option></option>
+								<option *ngFor="let option of selectedHero" [ngValue]="option">{{option}}</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Amour 3</td>
+						<td>
+							<select [(ngModel)]="editingHeroDeatils.amour3">
+								<option></option>
+								<option *ngFor="let option of selectedHero" [ngValue]="option">{{option}}</option>
+							</select>
+						</td>
+					</tr>
+
+				</table>
+
+			</div>
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,72 @@
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class CommonTreasureService {
+    getHeroes(): String[] {
+        return HEROES;
+    }
+}
+
+
+export const HEROES: String[] = [
+    'Morning Star',
+    'Sunset Armour',
+    'Rapier',
+    'Titanite Shard (1)',
+    'Titanite Shard (2)',
+    'Titanite Shard (3)',
+    'Titanite Shard (4)',
+    'Blood Gem',
+    'Simple Gem',
+    'Heavy Gem',
+    'Lighning Gem',
+    'Deacon Robes',
+    'Great Magic Weapon',
+    'Zweihander',
+    'Heard Leather Armour',
+    'Soulstream',
+    'Poison Mist',
+    'Master\'s Attirf',
+    'Drang Armour',
+    'East-West Shield',
+    'Pierce Shield',
+    'Exile Armour',
+    'Kukris',
+    'Worker Armour',
+    'Heal Aid',
+    'Ember (1)',
+    'Ember (2)',
+    'Ember (3)',
+    'Ember (4)',
+    'Reinfoced Club',
+    'Murakumo',
+    'Black Armour',
+    'Heal',
+    'Sunless Armour',
+    'Effigy Shield',
+    'Dragon Crest Shield',
+    'Blessed Gem',
+    'Sharp Gem',
+    'Eastern Iron Shield',
+    'Crystal Gem',
+    'Court Corcerer Robes',
+    'Sorcerer\'s Staff',
+    'Fireball',
+    'Shortsword',
+    'Halberd',
+    'Firelink Armour',
+    'Scimitar',
+    'Silver Eagle Kite Shield',
+   'Brigand Axe',
+   'Firebombs',
+   'Claymore',
+   'Poison Gem',
+   'Greataxe',
+   'Winged Spear',
+   'Thrall Axe',
+   'Great Mace',
+   'Force',
+   'Silver Knight Straight Sword',
+   'Chloranthy Ring',
+   'Soul Arrow'
+];

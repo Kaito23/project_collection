@@ -1,0 +1,65 @@
+<h1>Dark Souls <br />The board-savegame!</h1>
+<small>Version 0.3 - beta - still under development</small>
+<p>You need to write down the status of your current game? No! Input your data heroes,
+  save your data locally. Next time just upload the file move on.</p>
+<p>
+Criticism? Suggestions? Found a bug? Report it on GitHub:
+<a class="github-button" href="https://github.com/kaito23/ds-boardgame-savegame/issues" data-icon="octicon-issue-opened" aria-label="Issue kaito23/ds-boardgame-savegame on GitHub">Issue</a>
+</p>
+<p>
+  <a href="https://redd.it/6tg5zu" target="_blank"> We are on reddit
+    <img src="//www.redditstatic.com/spreddit4.gif" alt="go to reddit" border="0" /> 
+  </a>
+</p>
+
+<p>Like the app? Leave a star
+<a class="github-button" href="https://github.com/kaito23/ds-boardgame-savegame" data-icon="octicon-star" aria-label="Star kaito23/ds-boardgame-savegame on GitHub">Star</a>
+<div *ngIf="showUpload === true">
+  <hr />
+  <p>Upload your savegame</p>
+  <input type="file" name="File Upload" id="txtFileUpload" (change)="changeListener($event)" accept=".json"/>
+  <hr />
+</div>
+<div *ngIf="showUpload === true">
+<h2>General</h2>
+Select the used heroes:<br />
+<ul>
+   <!--<li>All</li>-->
+  <li *ngFor="let hero of aviableHeroes" (click)="newSelection(hero)">{{hero}}</li>
+</ul>
+<br />
+</div>
+
+<div *ngIf="chosenHeroes.length !== 0">
+  <app-character-editing [chosenHeroes]="chosenHeroes" [selectedHero]="selectedHero" [showUpload]="showUpload" [aviableHeroes]="aviableHeroes" [heroesHeadline]="heroesHeadline"></app-character-editing>
+</div>
+<br />
+
+
+Souls: <input type="number" min="0" [(ngModel)]="gameData.souls">
+
+
+<h2>Inventory:</h2>
+
+<div class="row treasures">
+    <div class="column _12">Click the headline for sorting</div>
+<div class="column _3">
+  <h2 (click)="sortCommonTreasures()">Common</h2>
+  <div class="box" *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="isInList(hero)">{{hero}}</div>
+</div>
+<div class="column _3">
+  <h2 (click)="sortClassSpecificTreasures()">Class specific</h2>
+  <div class="box" *ngFor="let hero of classSpecificTreasures" (click)="onSelect(hero)" [class.selected]="isInList(hero)">{{hero}}</div>
+</div>
+ <div class="column _3">
+    <h2 (click)="sortLegendaryTreasures()">Legendary</h2>
+    <div class="box" *ngFor="let hero of legendaryTreasures" (click)="onSelect(hero)" [class.selected]="isInList(hero)">{{hero}}</div>
+  </div>
+
+  <div class="column _3">
+    <h2 (click)="sortBossLoottreasures()">Boss loot</h2>
+    <div class="box" *ngFor="let hero of bossLoot" (click)="onSelect(hero)" [class.selected]="isInList(hero)">{{hero}}</div>
+  </div>
+
+</div>
+<button type="button" class="btn success btn-l" (click)="save()">Save</button>
